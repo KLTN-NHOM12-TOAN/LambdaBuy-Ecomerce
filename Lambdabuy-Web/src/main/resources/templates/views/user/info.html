@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="views/fragments/head :: head">
+</head>
+
+<body>
+	<!-- Start Main Top -->
+	<div th:replace="views/fragments/header :: header" />
+	<!-- End Main Top -->
+
+	<!-- Start Main Top -->
+	<!-- End Main Top -->
+
+	<!-- End All Title Box -->
+	<div class="mainDiv container text-center">
+		<div class="cardStyle row justify-content-center">
+			<!-- 
+            <div class="text alert alert-warning" th:if = "${error}">
+                <p th:text="${error}"></p>
+            </div>
+             -->
+
+			<form action="/user/update-info" method="post" name="signupForm"
+				id="signupForm" enctype="multipart/form-data" >
+
+				<img src="" id="signupLogo" />
+
+				<h2 class="formTitle">
+					<i>Personal Information</i>
+				</h2>
+				
+				<table class="table table-responsive">
+					<tr>
+						<td class="w-50 text-left">
+							<label class="inputLabel" for="email">Email *</label>
+						</td>
+						<td class="text-left">
+							<input type="text" id="email" th:value="${user.email}" name="email" readonly>
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 text-left">
+							<label class="inputLabel" for="firstname"> First name * </label>
+						</td>
+						<td class="w-75 text-left">
+							<input type="text" th:value="${profile.firstName}" id="firstname" name="firstname">
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 text-left">
+							<label class="inputLabel" for="lastname">Last name *</label>
+						</td>
+						<td class="w-75 text-left">
+							<input type="text" id="lastname" th:value="${profile.lastName}" name="lastname">
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 text-left">
+							<label class="inputLabel" for="phoneNumber">Phone number *</label>
+						</td>
+						<td class="w-75 text-left">
+							<input type="number" id="phoneNumber" th:value="${profile.phoneNumber}" name="phoneNumber">
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 text-left">
+							<label class="inputLabel" for="address">Address *</label>
+						</td>
+						<td class="w-75 text-left">
+							<input type="text" id="address" th:value="${profile.address}" name="address">
+						</td>
+					</tr>
+					<tr>
+						<td class="w-25 text-left">
+							<label class="inputLabel" for="avatar">Avatar *</label>
+						</td>
+						<td>
+							<div class="custom-file mb-4">
+								<input type="file" name="avatar"/>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<img alt="" th:src="${'data:image/png;base64,' + base64}" style="width: 100px;height: 100px;">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="buttonWrapper">
+								<button type="submit" id="submitButton" class="submitButton pure-button pure-button-primary">
+									<span>Save</span>
+								</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<h6  class="label label-success text-danger"  th:text=${message}></h6>
+		</div>
+	</div>
+	</section>
+
+
+	<!-- End copyright  -->
+
+	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+	<!-- ALL JS FILES -->
+	<div th:replace="views/fragments/footer :: footer"></div>
+</body>
+
+</html>

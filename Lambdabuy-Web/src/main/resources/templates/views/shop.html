@@ -1,0 +1,130 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="views/fragments/layout">
+<head th:replace="views/fragments/header :: head" />
+<body>
+	<div id="nav" th:replace="views/fragments/nav :: nav"></div>
+	<div id="page" layout:fragment="content">
+		<div>This is home page content</div>
+		<div th:replace="views/fragments/footer :: footer"></div>
+	</div>
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="views/fragments/head :: head" />
+<title>TRANG CHỦ</title>
+</head>
+<body>
+	<header th:replace="views/fragments/header :: header" />
+	<div th:replace="views/fragments/carousel :: carousel" />
+	<!------------------------------------------------------------------------------>
+
+	<!-- 
+		<div th:each="product : ${products}" class="d-inline">
+			<div class="col-2 d-inline-block text-center thumbnail mb-1">
+				<a th:href="@{/product/detail/{id}(id = ${product.id})}"
+					target="_self"> <img
+					th:src="@{/images/canon/canon-eos-m50-kit-1545mm-ef-50mm-f18-stm-den(1).jpg}"
+					class="img-thumbnail" style="position: relative;" alt="">
+					<h6 th:text="${product.name}"></h6>
+					<h6 th:text="${product.unitPrice}" class="text-danger"></h6> <span
+					class="badge badge-secondary"><strike><i
+							th:text="22.000.000"></i></strike></span> <br>
+				</a> <a th:href="@{/shopping-cart/add/{id}(id = ${product.id})}">
+					<button class="btn btn-primary">Mua hàng</button>
+				</a>
+			</div>
+		</div>
+	 -->
+	<!-- 
+	<div class="row" th:fragment="list" xmlns:th="http://www.thymeleaf.org">
+		<div th:each="product, stat : ${products}" class="col-sm-4">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title" th:text="${product.name}">Product name</h5>
+					<p class="card-text" th:text="${product.price}">Price</p>
+					<a href="#" class="btn btn-primary">Buy</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	 -->
+
+	<main class="container-fluid">
+		<div class="container-fluid mt-3 mb-3 col1_2">
+			<div class="row" th:fragment="list"
+				xmlns:th="http://www.thymeleaf.org">
+				<div th:each="product, stat : ${products}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+					<div class="card mb-3 text-center" style="">
+						<a th:href="@{/product/detail/{id}(id = ${product.id})}"
+							style="text-decoration: none; color: black;"> <img
+							class="card-img-top"
+							th:src="@{/images/canon/canon-eos-m50-kit-1545mm-ef-50mm-f18-stm-den(1).jpg}"
+							alt="Card image" style="width: 50%">
+							<div class="card-body">
+								<h4 class="card-title" th:text="${product.name}"></h4>
+								<p class="card-text">
+									<span style="color: red;"> <b
+										th:text="${product.unitPrice}">₫</b> &nbsp;</span><br>
+									<span th:text="${product.description}"></span>
+								</p>
+								<a th:href="@{/shopping-cart/add/{id}(id = ${product.id})}">
+									<button class="btn btn-primary">Mua hàng</button>
+								</a>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- ------------------------------------- -->
+	<header th:replace="views/fragments/info1 :: info1" />
+
+	<!-- ------------------------------------- -->
+	<header th:replace="views/fragments/info2 :: info2" />
+
+	<!------------------------------------------->
+	<hr>
+	<!-- 
+		<div class="row">
+		<div class="container">
+			<nav
+				class="navbar navbar-expand-sm bg-white navbar-white row justify-content-center">
+				<form class="form-inline" action="dangky2.html">
+					<input class="form-control mr-sm-2" type="text"
+						style="width: 500px;" placeholder="Địa chỉ email của bạn">
+					<button class="btn btn-danger" type="submit">Đăng kí</button>
+					<span><Strong>ĐĂNG KÍ NHẬN VOUCHER KHUYẾN MÃI</Strong></span>
+				</form>
+			</nav>
+		</div>
+	</div>
+	<br>
+	 -->
+	<!------------------------------------------->
+	<!-- 
+  <div class="row">
+    <div class="container-fluid">
+      <div class="jumbotron text-center">
+        <h6>CÔNG TY CỔ PHẦN ĐÂU TƯ VÀ PHÂN PHỐI ĐỨC TOÀN</h6>
+        info@cameradigital.com <br>
+        Số 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp <br>
+        Hồ Chí Minh, Việt Nam, 700000 <br>
+        08.1949.0540 - 039.368.8267<br><br>
+        Lê Văn Toàn - 18075801     Nguyễn Văn Đức - 18039151 <br>
+        Đề tài: Website bán máy ảnh
+      </div>
+    </div>
+  </div>
+   -->
+	<footer th:replace="views/fragments/footer :: footer" />
+	<div th:replace="views/fragments/search :: search" />
+</body>
+</html>
